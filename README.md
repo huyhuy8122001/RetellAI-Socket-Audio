@@ -13,7 +13,7 @@ This is intended to be a sample application that you can start with and later ex
 - inbound calls are connected to your Retell AI agent
 - bidirectional streaming is established between your SIP provider and Retell AI
 - audio barge-in is enabled through handling the 'clear' message from Retell AI
-- call transfer can be enabled by creating a simple tool on Retell AI (see [full blog post]() for details)
+- call transfer can be enabled by creating a simple tool on Retell AI (see [full blog post](https://blog.jambonz.org/using-jambonz-for-telephony-integration-with-retell-ai) for details)
 - call transfer is supported via either SIP REFER or INVITE
 
 ## Installing
@@ -31,7 +31,7 @@ Edit the [./ecosystem.config.js file](./ecosystem.config.js) and fill in the env
 
 Got you covered.  Easiest way to get started is to [create a free trial account on jambonz.cloud](https://jambonz.cloud/register).  Once you have an account, add a Carrier for your chosen SIP trunking provider.  Then add an Application that contains the websocket endpoint that this application exposes.  Add a phone number from your Carrier and connect it to the Application, and you are set to go.
 
-For more details, refer to the [blog post]() I mentioned above.
+For more details, refer to the [blog post](https://blog.jambonz.org/using-jambonz-for-telephony-integration-with-retell-ai) I mentioned above.
 
 ## I have more questions!
 Join our Slack channel by going to https://joinslack/jambonz.org.
