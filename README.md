@@ -1,8 +1,8 @@
 # retellai-audio-socket
 
-This is a [jambonz](https://jambonz.org) [application](https://www.jambonz.org/docs/webhooks/overview/) that allows Retell AI users to connect their agents to any BYOC SIP trunking provider. 
+This is a [jambonz](https://jambonz.org) [application](https://www.jambonz.org/docs/webhooks/overview/) that allows Retell AI users to connect their agents to any SIP trunking provider or PBX.
 
-For those of you not familiar with jambonz, it is an open source (MIT-licensed) voice gateway for CPaaS, CX/AI, and Voice/AI which is the functional equivalent of Twilio with the added ability to self-host on your own infrastructure (or use our cloud at [jambonz.cloud](https://jambonz.cloud), and the ability to bring your own carrier (BYOC) at no added cost.  
+For those of you not familiar with jambonz, it is an open source (MIT-licensed) voice gateway for CPaaS, CX/AI, and Voice/AI which is the functional equivalent of Twilio with the added ability to self-host on your own infrastructure (or use our cloud at [jambonz.cloud](https://jambonz.cloud)).  Jambonz lets you bring your own carrier (BYOC) and use features like bidirectional streaming at no additional cost.  Jambonz integrates with literally hundreds of SIP trunk providers, PBXs, and session border controllers.  It is used in large-scale production deployments by some of the largest CX/AI and Communication Service Providers.
 
 ## Overview
 
