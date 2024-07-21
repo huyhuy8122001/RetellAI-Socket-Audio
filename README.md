@@ -13,7 +13,7 @@ This is intended to be a sample application that you can start with and later ex
 - inbound calls are connected to your Retell AI agent
 - bidirectional streaming is established between your SIP provider and Retell AI
 - audio barge-in is enabled through handling the 'clear' message from Retell AI
-- call transfer can be enabled by creating a simple tool on Retell AI (see [full blog post](https://blog.jambonz.org/using-jambonz-for-telephony-integration-with-retell-ai) for details)
+- call transfer can be enabled by creating a simple tool on Retell AI (see [full blog post](https://blog.jambonz.org/using-jambonz-for-telephony-integration-with-retell-ai) or [video](https://www.youtube.com/watch?v=WQSDqXU1_Cc) for details)
 - call transfer is supported via either SIP REFER or INVITE
 
 ## Installing
