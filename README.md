@@ -8,7 +8,7 @@ For those of you not familiar with jambonz, it is an open source (MIT-licensed) 
 
 This application makes use of the Retell AI [audio websocket](https://docs.retellai.com/api-references/audio-websocket) API.  As of this writing (July 2024) that API has been marked as deprecated; however there is as yet no replacement for it and Retell AI folks have indicated it will be around for a while.
 
-This is a sample application.  It can certainly be taken and used with no code changes (some configuration will be needed of course, with your Retell AI api key and such), but it is meant to scaffold a basic integration with jambonz and your chosen SIP trunking provider, which you may want to extend and expand on to build more advanced features.  Having said that, it currently supports these features
+This is intended to be a sample application that you can start with and later extend. It currently supports these features
 
 - inbound calls are connected to your Retell AI agent
 - bidirectional streaming is established between your SIP provider and Retell AI
@@ -33,6 +33,5 @@ Got you covered.  Easiest way to get started is to [create a free trial account 
 
 For more details, refer to the [blog post]() I mentioned above.
 
-Questions?  Join our Slack channel byt going to https://joinslack/jambonz.org.
-
-Enjoy!
+## I have more questions!
+Join our Slack channel by going to https://joinslack/jambonz.org.
