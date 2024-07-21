@@ -1,15 +1,40 @@
-# retellai-shim
+# retellai-audio-socket
 
-This application was created with the [create jambonz command](https://www.npmjs.com/package/create-jambonz-app).  This documentation was generated at the time when the project was generated and describes the functionality that was initially scaffolded.  Of course, you should feel free to modify or replace this documentation as you build out your own logic.
+This is a [jambonz](https://jambonz.org) [websocket application](https://www.jambonz.org/docs/ws/overview/) that allows retell.ai users to connect their agents to any BYOC SIP trunking provider. 
 
-## Endpoints
+For those of you not familiar with jambonz, it is an open source (MIT-licensed) voice gateway for CPaaS, CX/AI, and Voice/AI which is the functional equivalent of Twilio with the added ability to self-host on your own infrastructure (or use our cloud at https://jambonz.cloud), and the ability to bring your own carrier (BYOC) at no added cost.  
 
-Based on the options that you have chosen, this application exposes the following HTTP endpoints:
+If you've been using Twilio and want to save some money..try jambonz!
 
+## Overview
 
+This application makes use of the Retell.ai [audio websocket](https://docs.retellai.com/api-references/audio-websocket) API.  As of this writing (July 2024) that API has been marked as deprecated; however there is as yet no replacement for it and Retell folks have indicated it will be around for a while.
 
+This is a sample application.  It can certainly be taken and used with no code changes (some configuration will be needed of course, with your retell ai api key and such), but it is meant to scaffold a basic integration with jambonz and your chosen SIP trunking provider, which you may want to extend and expand on to build more advanced features.  Having said that, it currently supports these features
 
-### /record
-A websocket server that receives audio from a 'listen' verb and uploads into an AWS S3 bucket.
+- inbound calls are connected to your retell.ai agent
+- bidirectional streaming is established between your SIP provider and retell.ai
+- audio barge-in is enabled through handling the 'clear' message from retell.ai
+- call transfer can be enabled by creating a simple tool on retell.ai (see [full blog post]() for details)
+- call transfer is supported via either SIP REFER or INVITE
 
+## Installing
 
+Having checked out this repo, do the usual:
+```bash
+npm ci
+```
+
+## Configuring
+
+Edit the [./ecosystem.config.js file](./ecosystem.config.js) and fill in the environment variables where indicated.  Basically, you need to specify your retell.ai api keuy and agent id, and the details of your jambonz environment.
+
+## I'm new to jambonz and I need more help!
+
+Got you covered.  Easiest way to get started is to [create a free trial account on jambonz.cloud](https://jambonz.cloud/register).  Once you have an account, add a Carrier for your chosen SIP trunking provider.  Then add an Application that contains the websocket endpoint that this application exposes.  Add a phone number from your Carrier and connect it to the Application, and you are set to go.
+
+For more details, refer to the [blog post]() I mentioned above.
+
+Questions?  Join our Slack channel byt going to https://joinslack/jambonz.org.
+
+Enjoy!

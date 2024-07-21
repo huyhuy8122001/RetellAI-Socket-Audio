@@ -12,7 +12,7 @@ const Websocket = require('ws');
 const {WebhookResponse} = require('@jambonz/node-client');
 const opts = Object.assign({
   timestamp: () => `, "time": "${new Date().toISOString()}"`,
-  level: process.env.LOGLEVEL || 'info'
+  level: process.env.LOGLEVEL || 'debug'
 });
 const logger = require('pino')(opts);
 const port = process.env.HTTP_PORT || 3000;
@@ -22,12 +22,17 @@ app.locals = {
   logger,
   client: require('@jambonz/node-client')(process.env.JAMBONZ_ACCOUNT_SID, process.env.JAMBONZ_API_KEY, {
     baseUrl: process.env.JAMBONZ_REST_API_BASE_URL
-  })
+  }),
+  callsInProgress: new Map()
 };
 
-/* set up a websocket server to receive audio from the 'listen' verb and pipe to retell.ai*/
+/* set up a websocket server to receive audio from the 'listen' verb and pipe it to retell.ai */
+/* https://docs.retellai.com/api-references/audio-websocket */
 const pipeAudio = require('./lib/utils/ws.js');
-const wsServer = new Websocket.Server({ noServer: true });
+const wsServer = new Websocket.Server({ noServer: true, handleProtocols: (protocols, request) => {
+  logger.info({protocols}, 'handleProtocols');
+  return 'audio.jambonz.org';
+}});
 wsServer.setMaxListeners(0);
 wsServer.on('connection', pipeAudio.bind(null, logger));
 app.use(express.urlencoded({ extended: true }));
@@ -36,7 +41,7 @@ if (process.env.WEBHOOK_SECRET) {
   app.use(WebhookResponse.verifyJambonzSignature(process.env.WEBHOOK_SECRET));
 }
 app.use('/', routes);
-app.use((err, req, res, next) => {
+app.use((err, _req, res) => {
   logger.error(err, 'burped error');
   res.status(err.status || 500).json({msg: err.message});
 });
@@ -45,7 +50,7 @@ const server = app.listen(port, () => {
   logger.info(`Example jambonz app listening at http://localhost:${port}`);
 });
 server.on('upgrade', (request, socket, head) => {
-  wsServer.handleUpgrade(request, socket, head, (socket) => {
-    wsServer.emit('connection', socket, request);
+  wsServer.handleUpgrade(request, socket, head, (ws) => {
+    wsServer.emit('connection', ws, request);
   });
 });
