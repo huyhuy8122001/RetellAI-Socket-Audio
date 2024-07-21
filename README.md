@@ -2,9 +2,7 @@
 
 This is a [jambonz](https://jambonz.org) [application](https://www.jambonz.org/docs/webhooks/overview/) that allows Retell AI users to connect their agents to any BYOC SIP trunking provider. 
 
-For those of you not familiar with jambonz, it is an open source (MIT-licensed) voice gateway for CPaaS, CX/AI, and Voice/AI which is the functional equivalent of Twilio with the added ability to self-host on your own infrastructure (or use our cloud at https://jambonz.cloud), and the ability to bring your own carrier (BYOC) at no added cost.  
-
-If you've been using Twilio and want to save some money..try jambonz!
+For those of you not familiar with jambonz, it is an open source (MIT-licensed) voice gateway for CPaaS, CX/AI, and Voice/AI which is the functional equivalent of Twilio with the added ability to self-host on your own infrastructure (or use our cloud at [jambonz.cloud](https://jambonz.cloud), and the ability to bring your own carrier (BYOC) at no added cost.  
 
 ## Overview
 

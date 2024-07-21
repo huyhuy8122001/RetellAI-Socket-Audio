@@ -30,7 +30,6 @@ app.locals = {
 /* https://docs.retellai.com/api-references/audio-websocket */
 const pipeAudio = require('./lib/utils/ws.js');
 const wsServer = new Websocket.Server({ noServer: true, handleProtocols: (protocols, request) => {
-  logger.info({protocols}, 'handleProtocols');
   return 'audio.jambonz.org';
 }});
 wsServer.setMaxListeners(0);
